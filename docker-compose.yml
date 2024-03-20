@@ -1,0 +1,6 @@
+﻿services:
+  periodictable.api:
+    image: periodictable.api
+    build:
+      context: .
+      dockerfile: src/PeriodicTable.Api/Dockerfile
