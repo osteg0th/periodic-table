@@ -27,3 +27,4 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/src/PeriodicTable.Api/Dockerfile'
         tags: |
           $(tag)
+        buildContext: '$(Build.SourcesDirectory)'
