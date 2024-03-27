@@ -1,3 +1,5 @@
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
 using MongoDB.Driver;
 using PeriodicTable.Api.Models;
 using PeriodicTable.Api.Services;
@@ -29,6 +31,25 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler(appError =>
+{
+    appError.Run(async context =>
+    {
+        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        context.Response.ContentType = "application/json";
+
+        var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+        if (contextFeature is not null)
+        {
+            await context.Response.WriteAsJsonAsync(new
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = "Something go wrong."
+            });
+        }
+    });
+});
 
 app.MapGet("/chemical", async (IChemicalElementsService chemicalElementsService) =>
 {
