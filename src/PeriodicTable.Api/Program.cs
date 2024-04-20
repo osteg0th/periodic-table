@@ -1,3 +1,5 @@
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
 using MongoDB.Driver;
 using PeriodicTable.Api.Models;
 using PeriodicTable.Api.Services;
@@ -51,6 +53,11 @@ app.UseExceptionHandler(appError =>
 });
 
 app.MapGet("/chemical", async (IChemicalElementsService chemicalElementsService) =>
+{
+    var result = await chemicalElementsService.GetAsync();
+    return result;
+}).WithOpenApi();
+app.MapGet("/chemical/{id:int}", async (int id, IChemicalElementsService chemicalElementsService) =>
 {
     var result = await chemicalElementsService.GetAsync();
     return result;
