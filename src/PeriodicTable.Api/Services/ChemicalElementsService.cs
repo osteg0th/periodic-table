@@ -15,6 +15,8 @@ public class ChemicalElementsService(
 
     public async Task<ChemicalElement?> GetByIdAsync(string id) =>
         await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    public async Task<ChemicalElement?> GetByAtomicNumberAsync(int atomicNumber) =>
+        await _collection.Find(x => x.AtomicNumber == atomicNumber).FirstOrDefaultAsync();
     public async Task<ChemicalElement?> GetByNameAsync(string name) =>
         await _collection.Find(x => x.Name == name).FirstOrDefaultAsync();
 }

@@ -6,6 +6,8 @@ public class ChemicalElement(string id) : IDocument
 {
     [BsonId]
     public string Id { get; init; }
+    [BsonElement("atomic_number")]
+    public int AtomicNumber { get; init; }
     [BsonElement("name")]
     public string Name { get; set; }
     [BsonElement("short_name")]
