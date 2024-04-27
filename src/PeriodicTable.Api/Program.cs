@@ -52,12 +52,12 @@ app.UseExceptionHandler(appError =>
     });
 });
 
-app.MapGet("/chemical", async (IChemicalElementsService chemicalElementsService) =>
+app.MapGet("/elements", async (IChemicalElementsService chemicalElementsService) =>
 {
     var result = await chemicalElementsService.GetAsync();
     return result;
 }).WithOpenApi();
-app.MapGet("/chemical/{id:int}", async (int id, IChemicalElementsService chemicalElementsService) =>
+app.MapGet("/elements/{id:int}", async (int id, IChemicalElementsService chemicalElementsService) =>
 {
     var result = await chemicalElementsService.GetAsync();
     return result;
