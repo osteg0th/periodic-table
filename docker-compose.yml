@@ -5,17 +5,14 @@
       context: .
       dockerfile: src/PeriodicTable.Api/Dockerfile
     
-  mongodb:
+  mongo-local:
     image: mongodb/mongodb-community-server:latest
     ports:
       - '27017:27017'
     environment:
       - MONGODB_INITDB_ROOT_USERNAME=admin
       - MONGODB_INITDB_ROOT_PASSWORD=pass
-      - MONGODB_
     volumes:
-      - ./mongo/seed:/data/seed
-    command:
-        /data/seed/import.sh
+      - ./mongo/seed:/docker-entrypoint-initdb.d
       
   

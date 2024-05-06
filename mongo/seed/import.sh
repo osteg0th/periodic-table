@@ -1,2 +1,3 @@
 #! /bin/bash
-mongoimport --username admin --password pass --db PeriodicTable --collection chemicalElements --type json --file /PeriodicTableJSON.json --jsonArray
+cd docker-entrypoint-initdb.d || exit 
+mongoimport --host localhost:27017 --db PeriodicTable --collection ChemicalElements --file ./PeriodicTableJSON.json
