@@ -59,7 +59,7 @@ app.MapGet("/elements", async (IChemicalElementsService chemicalElementsService)
 }).WithOpenApi();
 app.MapGet("/elements/{id:int}", async (int id, IChemicalElementsService chemicalElementsService) =>
 {
-    var result = await chemicalElementsService.GetAsync();
+    var result = await chemicalElementsService.GetByAtomicNumberAsync(id);
     return result;
 }).WithOpenApi();
 

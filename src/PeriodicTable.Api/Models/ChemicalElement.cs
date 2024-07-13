@@ -1,17 +1,23 @@
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace PeriodicTable.Api.Models;
 
-public class ChemicalElement(string id) : IDocument
+[BsonIgnoreExtraElements]
+public class ChemicalElement() : IDocument
 {
     [BsonId]
-    public string Id { get; init; }
-    [BsonElement("atomic_number")]
+    public ObjectId Id { get; init; }
+    [BsonElement("number")]
     public int AtomicNumber { get; init; }
     [BsonElement("name")]
     public string Name { get; set; }
-    [BsonElement("short_name")]
-    public string ShortName { get; set; }
+    [BsonElement("symbol")]
+    public string Symbol { get; set; }
+    [BsonElement("period")]
     public int Period { get; set; }
-    public int ElectronPerShel { get; set; }
+    [BsonElement("group")]
+    public int Group { get; set; }
+    [BsonElement("phase")]
+    public string Phase { get; set; }
 }

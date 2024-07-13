@@ -11,7 +11,7 @@
     depends_on:
       - mongo-local
     volumes:
-      - ./src/PeriodicTable.Api/appsettings.Staging.json:/app/PeriodicTable.Api/appsettings.Staging.json  
+      - ./src/PeriodicTable.Api/appsettings.Staging.json:/app/appsettings.Staging.json  
     
   mongo-local:
     image: mongodb/mongodb-community-server:latest
