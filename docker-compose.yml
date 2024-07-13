@@ -1,9 +1,17 @@
 ﻿services:
   periodictable.api:
     image: periodictable.api
+    ports:
+      - "5255:8080"
     build:
       context: .
       dockerfile: src/PeriodicTable.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Staging
+    depends_on:
+      - mongo-local
+    volumes:
+      - ./src/PeriodicTable.Api/appsettings.Staging.json:/app/PeriodicTable.Api/appsettings.Staging.json  
     
   mongo-local:
     image: mongodb/mongodb-community-server:latest
