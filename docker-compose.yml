@@ -1,4 +1,15 @@
 ﻿services:
+  nextjs-react-client:
+    ports:
+      - "3000:3000"
+    build: 
+      context: .
+      dockerfile: src/Clients/react-client/dev.Dockerfile
+    depends_on:
+      - periodictable.api
+    environment:
+      - API_BASE_URL=http://periodictable.api:8080
+
   periodictable.api:
     image: periodictable.api
     ports:

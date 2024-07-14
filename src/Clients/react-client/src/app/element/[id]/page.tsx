@@ -3,10 +3,9 @@ import { FC } from "react";
 
 const Element: FC<{ id: number }> = async ({ id }) => {
   const element = await Api.getByNumber(id);
-
+  
   return (
     <ul>
-      {/* <li>{element.id}</li> */}
       <li>{element.name}</li>
       <li>{element.group}</li>
       <li>{element.number}</li>

@@ -14,7 +14,8 @@ export type ChemicalElementsApi = {
 };
 
 const getAll = async () => {
-  const result = await fetch("http://localhost:5255/elements", {
+  var uri = process.env.API_BASE_URL + "/elements";
+  const result = await fetch(uri, {
   method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +26,8 @@ const getAll = async () => {
 };
 
 const getByNumber = async (id: number) => {
-  const result = await fetch("http://localhost:5255/elements/" + id);
+  var uri = process.env.API_BASE_URL + "/elements/" + id;
+  const result = await fetch(uri);
   var data = await result.json();
   return data;
 };
