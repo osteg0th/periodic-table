@@ -8,6 +8,8 @@ RUN npm ci
 COPY /src/Clients/react-client/src ./src
 COPY /src/Clients/react-client/public ./public
 COPY /src/Clients/react-client/next.config.mjs .
+COPY /src/Clients/react-client/postcss.config.mjs .
+COPY /src/Clients/react-client/tailwind.config.ts .
 COPY /src/Clients/react-client/tsconfig.json .
 
 CMD npm run dev

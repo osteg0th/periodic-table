@@ -20,4 +20,8 @@ public class ChemicalElement() : IDocument
     public int Group { get; set; }
     [BsonElement("phase")]
     public string Phase { get; set; }
+    [BsonElement("category")]
+    public string Category { get; set; }
+    [BsonElement("block")]
+    public string Block { get; set; }
 }

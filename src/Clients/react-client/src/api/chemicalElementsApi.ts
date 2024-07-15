@@ -1,11 +1,12 @@
 export type ChemicalElement = {
-//   id: number;
   name: string;
   symbol: string;
   phase: string;
-  number: number;
+  atomicNumber: number;
   group: number;
   period: number;
+  category: string;
+  block: string;
 };
 
 export type ChemicalElementsApi = {
@@ -22,13 +23,17 @@ const getAll = async () => {
     },
   });
   const data = (await result.json()) as ChemicalElement[];
+
+  console.table(data)
   return data;
 };
 
 const getByNumber = async (id: number) => {
+  console.table()
   var uri = process.env.API_BASE_URL + "/elements/" + id;
   const result = await fetch(uri);
   var data = await result.json();
+  console.table(data)
   return data;
 };
 

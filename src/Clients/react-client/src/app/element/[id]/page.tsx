@@ -3,15 +3,15 @@ import { FC } from "react";
 
 const Element: FC<{ id: number }> = async ({ id }) => {
   const element = await Api.getByNumber(id);
-  
+
   return (
     <ul>
       <li>{element.name}</li>
       <li>{element.group}</li>
-      <li>{element.number}</li>
       <li>{element.period}</li>
       <li>{element.phase}</li>
       <li>{element.symbol}</li>
+      <li>{element.category}</li>
     </ul>
   );
 };

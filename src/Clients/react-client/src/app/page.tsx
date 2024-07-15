@@ -1,4 +1,4 @@
-import { Elements } from "./components/Elements";
+import { Elements } from "@/app/Elements";
 
 export default function Home() {
 
