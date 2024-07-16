@@ -1,10 +1,15 @@
-import { Elements } from "@/app/Elements";
+import { Elements } from "@/app/components/GridElements";
 
-export default function Home() {
-
+export default function Home({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <main>
-      <Elements/>
+    <main className="flex-1">
+      <div>
+        <Elements />
+      </div>  
     </main>
   );
 }

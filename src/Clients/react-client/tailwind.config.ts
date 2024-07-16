@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        "18": "repeat(18, minmax(0, 1fr))",
+        "18": "repeat(18, min-contnet)",
       },
       gridColumn: {
         'span-13': 'span 13 / span 13',
