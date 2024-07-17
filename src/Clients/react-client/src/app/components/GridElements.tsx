@@ -11,8 +11,8 @@ export async function Elements() {
   );
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-18 grid-rows-7 gap-1 justify-center w-5/6 mx-auto py-2 px-6">
+    <div className="space-y-4 break-before-avoid break-inside-avoid">
+      <div className="grid auto-cols-fr gap-2 px-2 py-6">
         {mainElements.map((element, index) => {
           return (
             <TableElement
@@ -23,12 +23,9 @@ export async function Elements() {
             />
           );
         })}
-        <div className="col-start-4 col-end-11 row-start-1 row-end-3">
-          {/* <DetailedElement element={selectedElement}/> */}
-        </div>
       </div>
 
-      <div className="grid grid-cols-18 grid-rows-2 gap-2 justify-center w-4/6 mx-auto">
+      <div className="grid auto-cols-fr gap-2 px-2 py-6">
         {additionalElements.map((element, index) => {
           var row = element.category == "lanthanide" ? 1 : 2;
           return <TableElement key={index} element={element} row={row} />;

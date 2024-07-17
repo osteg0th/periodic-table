@@ -24,9 +24,9 @@ export default function RootLayout({
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
         </header>
-        <div className="bg-white dark:bg-slate-800 dark:text-white">
+        <main className="bg-white dark:bg-slate-800 dark:text-white flex-1" >
           {children}
-        </div>
+        </main>
       </body>
     </html>
   );

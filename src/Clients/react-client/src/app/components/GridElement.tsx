@@ -19,6 +19,43 @@ function getColorByBlock(block: string) {
   return result;
 }
 
+function getColorByCategory(category: string) {
+  let result = "";
+  switch (category) {
+    case "diatomic nonmetal":
+      result = "border-yellow-500";
+      break;
+    case "polyatomic nonmetal":
+      result = "border-yellow-600";
+      break;
+    case "alkali metal":
+      result = "border-red-500";
+      break;
+    case "alkaline earth metal":
+      result = "border-cyan-500";
+      break;
+    case "post-transition metal":
+      result = "border-blue-600";
+      break;
+    case "transition metal":
+      result = "border-slate-400";
+      break;
+    case "metalloid":
+      result = "border-slate-600";
+      break;
+    case "noble gas":
+      result = "border-violet-700";
+      break;
+    case "lanthanide":
+      result = "border-cyan-700";
+      break;
+    case "actinide":
+      result = "border-green-700";
+      break;
+  }
+  return result;
+}
+
 export function TableElement(props: {
   element: ChemicalElement;
   row?: number;
@@ -30,27 +67,19 @@ export function TableElement(props: {
       className={`text-center
       ${column && "col-start-" + column}
       ${row && "row-start-" + row}
-      container
-
-      col-span-1
-      row-span-1
       hover:scale-110 duration-300
-      flex items-center content-center justify-center
-      box-border border-4 ${getColorByBlock(element.block)}
-
-      md:size-16
-      lg:size-20
-      xl:size-24
-      2xl:size-24
+      box-border border-4 ${getColorByCategory(element.category)}
+      p-1
       `}
     >
-      <div className="size-full">
+      <div className="block w-full text-center leading-none py-px">
         {/* <p>group: {element.group}</p> */}
         {/* <p>period: {element.period}</p> */}
         {/* <p>category: {element.category}</p> */}
-        <p>{element.atomicNumber}</p>
-        <p className="text-3xl">{element.symbol}</p>
-        <p className="opacity-0 hover:opacity-100">{element.name}</p>
+        <div>{element.atomicNumber}</div>
+        <div className="font-medium text-3xl">{element.symbol}</div>
+        <div className="text-s truncate">{element.name}</div>
+        <div className="text-xs truncate">{element.category}</div>
       </div>
     </div>
   );

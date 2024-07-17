@@ -6,10 +6,8 @@ export default function Home({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex-1">
-      <div>
+    <div className="">
         <Elements />
-      </div>  
-    </main>
+    </div>
   );
 }
